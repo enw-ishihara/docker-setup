@@ -129,7 +129,11 @@ RUN dnf --enablerepo=epel,powertools install -y \
 RUN cpan install \
     Unicode::Japanese
 
-RUN mkdir -p /run/php-fpm
+RUN mkdir -p /run/php-fpm \
+ && sed -ri \
+    -e 's!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g' \
+    -e 's!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g' \
+    /etc/httpd/conf/httpd.conf
 
 COPY vhosts.conf /etc/httpd/conf.d/
 COPY 00-php.ini /etc/php.d/
