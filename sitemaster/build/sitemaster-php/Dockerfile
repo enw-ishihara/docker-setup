@@ -11,7 +11,6 @@ RUN dnf install -y \
     php-devel \
     php-mbstring \
     php-mysqlnd \
-    procps \
  && dnf --enablerepo=epel install -y \
     ImageMagick \
     supervisor
