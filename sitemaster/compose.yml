@@ -1,0 +1,57 @@
+services:
+  sitemaster-php:
+    container_name: sitemaster-php
+    build: ./build/sitemaster-php
+    image: sitemaster-php
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 200m
+    logging:
+      options:
+        max-size: 100k
+        max-file: 3
+    volumes:
+      - /var/opt/html:/var/www/html
+    ports:
+      - 127.0.0.8:80:80
+    depends_on:
+      - sitemaster-db
+  sitemaster-db:
+    container_name: sitemaster-db
+    image: mysql:5.7
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 300m
+    logging:
+      options:
+        max-size: 100k
+        max-file: 3
+    volumes:
+      - sitemaster-db_mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+  sitemaster-ftp:
+    container_name: sitemaster-ftp
+    build: ./build/sitemaster-ftp
+    image: sitemaster-ftp
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 10m
+    logging:
+      options:
+        max-size: 100k
+        max-file: 3
+    volumes:
+      - /var/opt/html:/home/admin
+    ports:
+      - 21:21
+      - 60000-60010:60000-60010
+volumes:
+  sitemaster-db_mysql:
+    name: sitemaster-db_mysql
