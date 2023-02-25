@@ -1,4 +1,6 @@
 #!/usr/bin/bash
 
-mkdir -p /var/opt/html
-chown admin:admin /var/opt/html
+readonly CONTENTS_DIR='/var/opt/html'
+
+sudo mkdir -p ${CONTENTS_DIR}
+sudo chown admin:admin ${CONTENTS_DIR}
