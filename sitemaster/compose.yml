@@ -51,7 +51,7 @@ services:
       - /var/opt/html:/home/admin
     ports:
       - 21:21
-      - 60000-60010:60000-60010
+      - 60000-60004:60000-60004
   sitemaster-dns:
     container_name: sitemaster-dns
     build: ./build/sitemaster-dns
