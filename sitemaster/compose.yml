@@ -50,8 +50,8 @@ services:
     volumes:
       - /var/opt/html:/home/admin
     ports:
-      - 21:21
-      - 60000-60004:60000-60004
+      - 127.0.0.21:21:21
+      - 127.0.0.21:60000-60004:60000-60004
   sitemaster-dns:
     container_name: sitemaster-dns
     build: ./build/sitemaster-dns

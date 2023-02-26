@@ -1,13 +1,14 @@
 $ORIGIN kakunin.local.
 $TTL 2d
-@                 IN      SOA   ns.kakunin.local. root.kakunin.local. (
+@                   IN      SOA   ns.kakunin.local. root.kakunin.local. (
                                 2023022600 ; serial
                                 12h        ; refresh
                                 15m        ; retry
                                 3w         ; expiry
                                 2h         ; minimum
                                 )
-                  IN      NS      ns.kakunin.local.
-ns.kakunin.local. IN      A       127.0.0.53
-kakunin.local.    IN      A       127.0.0.8
-*.kakunin.local.  IN      A       127.0.0.8
+                    IN      NS      ns.kakunin.local.
+ftp.kakunin.local.  IN      A       127.0.0.21
+ns.kakunin.local.   IN      A       127.0.0.53
+kakunin.local.      IN      A       127.0.0.8
+*.kakunin.local.    IN      A       127.0.0.8
