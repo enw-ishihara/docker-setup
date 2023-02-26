@@ -52,6 +52,23 @@ services:
     ports:
       - 21:21
       - 60000-60010:60000-60010
+  sitemaster-dns:
+    container_name: sitemaster-dns
+    build: ./build/sitemaster-dns
+    image: sitemaster-dns
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 50m
+    logging:
+      options:
+        max-size: 100k
+        max-file: 3
+    ports:
+      - 127.0.0.53:53:53
+      - 127.0.0.53:53:53/udp
+    command: -conf /etc/coredns/Corefile
 volumes:
   sitemaster-db_mysql:
     name: sitemaster-db_mysql
