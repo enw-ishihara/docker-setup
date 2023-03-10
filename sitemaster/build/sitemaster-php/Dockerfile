@@ -17,6 +17,7 @@ RUN dnf install -y \
 
 # Perl
 RUN dnf --enablerepo=epel,powertools install -y \
+    ImageMagick-perl \
     perl-Archive-Extract \
     perl-Archive-Tar \
     perl-BSD-Resource \
@@ -98,6 +99,7 @@ RUN dnf --enablerepo=epel,powertools install -y \
     perl-Socket6 \
     perl-String-CRC32 \
     perl-Taint-Runtime \
+    perl-Template-Toolkit \
     perl-Test-Harness \
     perl-Test-Simple \
     perl-Time-HiRes \
@@ -122,7 +124,6 @@ RUN dnf --enablerepo=epel,powertools install -y \
     perl-libxml-perl \
     perl-parent \
     perl-version \
-    ImageMagick-perl \
  && dnf clean all
 
 RUN cpan install \

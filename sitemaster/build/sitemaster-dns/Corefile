@@ -3,6 +3,10 @@
     reload
 }
 
+enwdom.local {
+    forward . 192.168.5.245
+}
+
 kakunin.local {
     log
     file /etc/coredns/zones/kakunin.local.zone
