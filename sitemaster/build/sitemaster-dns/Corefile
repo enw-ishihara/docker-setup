@@ -1,6 +1,5 @@
 . {
-    forward . 8.8.8.8:53
-    reload
+    forward . 192.168.5.245 8.8.8.8
 }
 
 enwdom.local {
@@ -8,6 +7,5 @@ enwdom.local {
 }
 
 kakunin.local {
-    log
     file /etc/coredns/zones/kakunin.local.zone
 }
